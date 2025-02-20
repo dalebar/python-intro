@@ -91,6 +91,9 @@ blockquote {
   padding: 0 3px;
 }
 
+.indent {
+  text-indent: 38px
+}
 
 @media only screen and (max-width: 815px) {
   /* For mobile phones: */

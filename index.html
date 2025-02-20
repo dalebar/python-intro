@@ -237,23 +237,24 @@
         <article>
           <h1>Exercises</h1>
           <p>To practise making variables, the next step is to fork and clone a repo so that you can complete some exercises on this and future topics.</p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>Follow the link to this GitHub repo: <a href="https://github.com/dalebar/python-practise">https://github.com/dalebar/python-practise</a> and follow the instructions in the README to get set up.</p>
+          <p>Once you have the repo set up and cloned, complete the exercises in <code class="snippet">01_variables</code>.</p>
+          <p>This is the only file you need to complete for now. The others will follow the relevant sections on this platform.</p>
         </article>
         <article>
           <h1>Summary</h1>
-          <p></p>
+          <p>Make sure that you know and understand the following key points about storing data in Python:</p>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Python data is always stored as an <b>object</b> - data plus added features that help users and the Python interpreter interact with the data.</li>
+            <li>The data <b>type</b> is information describing the data object and how much memory it requires.</li>
+            <li>Python performs <b>type inference</b> - it figures out exactly what type of object the data should be stored as.</li>
+            <li><b>Variables</b> allow us to save and retrieve data from memory without needing to know the exact memory location.</li>
+            <li>Variables can be reassigned to different values...</li>
+            <li>... even values that are different types. Python does <b>dynamic typing.</b></li>
+            <li>The <code class="snippet">dir</code> and <code class="snippet">type</code> commands allow us to investigate the properties of data stored in Python.</li>
+            <li>Variable names in CAPITALS are conventionally reserved for data whose values should never be changed.</li>
+            <li>Most variable names consisting of more than one word should be written in <b>snake_case</b>.
+            </li>
           </ul>
         </article>
       </section>
@@ -261,94 +262,133 @@
         <header>Functions</header>
         <article>
           <h1>What is a Function?</h1>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <blockquote><p></p></blockquote>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
+          <p>Here's a useful trick - Python <a href="https://speedsheet.io/s/python#d2zE">f-strings</a> allow us to manipulate different pieces of information into a single string.</p>
+          <p>So, for example, we can do the following:</p>
+          <pre><code class="language-python">greeting = 'Hello' # declaring a variable 
+          </code><code class="language-python">
+          print(f'{greeting},  Joe!') # prints Hello, Joe!</code></pre>
+          <p>We joined the <code class="snippet">greeting</code> string to some punctuation (a comma and a space), then a name and then an exclamation mark. This is fun! We can do it again with a different name:</p>
+          <pre><code class="language-python">print(f'{greeting}, Paul!')</code></pre>
+          <p>Fantastic! Let's do it again:</p>
+          <pre><code class="language-python">print(f'{greeting}, Vel!')</code></pre>
+          <p>OK, this is starting to get a <i>teeny</i> bit tedious. We are doing pretty much the same thing over and over, changing only the name. It would be much better if we had a <i>reusable</i> chunk of code that we could run easily, providing only the new name that we want the greeting to address.</p>
+          <p>That's where functions come in. There are some very specific details about defining a function that we will avoid here, but let's just think of it as a reusable piece of code that can (if necessary) process any data it is given.</p>
+          <p>In Python, we can <b>declare</b> a function called <code class="snippet">cheerful_greeter</code> like this:</p>
+          <pre><code class="language-python">def cheerful_greeter(name):
+          </code><code class="language-python indent">
+          salutation = 'Hello'
+          </code><code class="language-python indent">
+          print(f'{salutation}, {name}!)</code></pre>
+          <blockquote><p>Note the usual indentation for the function definition. Note also the conventional use of <b>snake_case</b> to name the function.</p></blockquote>
+          <p>In itself, this code does nothing except define a variable called <code class="snippet">cheerful_greeter</code> and assign it to a very specific type of object called a <code class="snippet">function</code>. If we type,</p>
+          <pre><code class="language-python">cheerful_greeter</code></pre>
+          <p>the Python interpreter will output something like:</p>
+          <pre><code class="language-python">function cheerful_greeter at 0x1011c4180</code></pre>
+          <p>This just tells me that there is some sort of function object at the given memory location. As with any other object, I can see what attributes it has:</p>
+          <pre><code class="language-python">dir(cheerful_greeter)</code></pre>
+          <p>... although the output doesn't tell us very much.</p>
+          <p>The real magic is that we can <b>invoke</b> or <b>call</b> this function. Our function declaration included a <b>parameter</b> called <code class="snippet">name</code>, which means that our function must be called with a single piece of data. We can pass any value we like, as many times as we like:</p>
+          <pre><code class="language-python">cheerful_greeter('Harry') # cheerfully greets Harry</code></pre>
+          <p>Our function is infinitely reusable:</p>
+          <pre><code class="language-python">cheerful_greeter('Spike')
+          </code><code class="language-python">
+          cheerful_greeter('Peter')</code></pre>
         </article>
         <article>
           <h1>Parameters and Arguments</h1>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
+          <p>The variable expected by the function call - <code class="snippet">name</code> - is called a <b>parameter</b>. The specific value we pass to the function, e.g. "Harry", is called an <b>argument</b>.</p>
+          <p>The <code class="snippet">cheerful_greeter</code> function has one parameter. If we pass in more (or fewer), we get an error as soon as we call the function:</p>
+          <pre><code class="language-python">cheerful_greeter('Mickey', 'Donald') # TypeError: cheerful_greeter() takes 1 positional argument but 2 were given
+          </code><br><code class="language-python">
+          cheerful_greeter() # TypeError: cheerful_greeter() missing 1 required positional argument: 'name'</code></pre>
+          <p>Some programming languages require the developer to specify what type the parameter should be. Python provides some support for specifying the intended input (in this case, we intend that the parameter should be a string), but does not enforce anything. So, these examples "work", even though probably not as we intended:</p>
+          <pre><code class="language-python">cheerful_greeter(['I', 'like', 'old', 'cartoons']) # this argument is a list, we'll find out more about these soon
+          </code><code class="language-python">
+            cheerful_greeter(7)
+          </code><code class="language-python">
+            cheerful_greeter(7.5)
+          </code><code class="language-python">
+            cheerful_greeter(False)</code></pre>
+          <p>We'll see various ways to deal with this kind of unexpected behaviour later.</p>
+          <p>Note that functions don't need to take any parameters at all. This is a perfectly good function:</p>
+          <pre><code class="language-python">def hello_world():
+          </code><code class="language-python indent">
+            print('Hello, World!')</code></pre>
+          <p>You do need to include empty brackets when calling it, though:</p>
+          <pre><code class="language-python">hello_world() # Hello, World!</code></pre>
         </article>
         <article>
           <h1>Function Scope</h1>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
+          <p>It's important to understand that what goes on inside a function is in some sense "boxed off" from the rest of our code. Consider our original code snippet:</p>
+          <pre><code class="language-python">greeting = 'Hello' 
+          </code><code class="language-python">
+            print(f'{greeting},  Joe!')</code></pre>
+          <p>If I execute this, I get the required result, and I also have access to the <code class="snippet">greeting</code> variable:</p>
+          <pre><code class="language-python">greeting # outputs Hello</code></pre>
+          <p>So the <code class="snippet">greeting</code> variable exists and is accessible in our session.</p>
+          <p>Within the code of our <code class="snippet">cheerful_greeter</code>, there is a different variable, <code class="snippet">salutation</code>. If we try to access it, we get an error:</p>
+          <pre><code class="language-python">salutation # NameError: name 'salutation' is not defined</code></pre>
+          <p>Likewise, the value of the <code class="snippet">name</code> parameter is not available:</p>
+          <pre><code class="language-python">name # NameError: name 'name' is not defined.</code></pre>
+          <p>Code executing within the function has its own segregated area of memory. This segregation is called the scope of the function, and we will discuss it in much more detail during the course. For now, you just need to understand that the internal workings of functions are designed to be separated from the rest of the code. We care about the name of the function (so it can be called), what arguments we pass in, and the final effects of what the function does. The inner workings are meant to be irrelevant.</p>
+          <p>For example, here is an alternative greeting function:</p>
+          <pre><code class="language-python">def cheerful_greeter_2(name):
+          </code><code class="language-python indent">
+            first_word = 'Hello, '
+          </code><code class="language-python indent">
+            print(first_word + name + '!')</code></pre>
           <p></p>
         </article>
         <article>
           <h1>The Return Keyword</h1>
-          <p></p>
-          <blockquote><p></p></blockquote>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
+          <p>Let's suppose that instead of printing out the cheerful greeting, I want to store it. So, given the name "Jean-Luc", the function would just compute the value</p>
+          <blockquote><p><code class="snippet">Hello, Jean-Luc!</code></p></blockquote>
+          <p>This function does just that:</p>
+          <pre><code class="language-python">def greeting_maker(name):
+          </code><code class="language-python indent">
+            salutation = 'Hello'
+          </code><code class="language-python indent">
+            full_greeting = f'{salutation}, {name}!'</code></pre>
+          <p>If we run this...</p>
+          <pre><code class="language-python">greeting_maker('Jean-Luc')</code></pre>
+          <p>... nothing seems to happen. That shouldn't be surprising, because although all the code has been executed, there is no <code class="snippet">print</code> statement to place the output on my screen.</p>
+          <p>But suppose I want to be able to access that greeting so that I can use it elsewhere in my code? The greeting is stored inside the function in a variable called <code class="snippet">full_greeting</code> but, as we saw, variables within the function scope are not available to code outside the function. To make the computed value accessible, we use the <code class="snippet">return</code> keyword.</p>
+          <p>Change the code to be the following:</p>
+          <pre><code class="language-python">def greeting_maker(name):
+          </code><code class="language-python indent">
+            salutation = 'Hello'
+          </code><code class="language-python indent">
+            full_greeting = f'{salutation}, {name}!'
+          </code><code class="language-python indent">
+            return full_greeting</code></pre>
+          <p>Now when we run the code in the REPL...</p>
+          <pre><code class="language-python">greeting_maker('Jean-Luc')</code></pre>
+          <p>... we see the cheerful greeting. This is an expression, computing a value. (The REPL takes care of showing it on the screen. In a standard Python program, we would not see the return value.)</p>
+          <p>Note that the variable name <code class="snippet">full_greeting</code> is still hidden inside the function scope. If we try to access it, we will get a <code class="snippet">NameError</code>. So the usual thing is to assign the returned value to a new variable:</p>
+          <pre><code class="language-python">hello_picard = greeting_maker('Jean-Luc')</code></pre>
+          <p>Now we can do stuff with this result.</p>
+          <pre><code class="language-python">print(hello_picard.upper())  # HELLO, JEAN-LUC!
+          </code><code class="language-python">
+            print(len(hello_picard))  # 16</code></pre>
+          <p>The <code class="snippet">return</code> keyword stops function execution, so it is usually the last statement in a function. If it is not included, the function will return <code class="snippet">None</code> when its code has been executed. For example, if we try to treat our original <code class="snippet">cheerful_greeter</code> function as an expression...</p>
+          <pre><code class="language-python">print(cheerful_greeter('Buster'))</code></pre>
+          <p>... then we get:</p>
+          <pre><code class="language-python">Hello, Buster!
+          </code><code class="language-python">
+          None</code></pre>
+          <p>This is the expected output from the <code class="snippet">cheerful_greeter</code> code followed by the value returned - <code class="snippet">None</code> because no explicit <code class="snippet">return</code> was included.          </p>
         </article>
         <article>
           <h1>Summary</h1>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>Functions are the building blocks of all Python code. You will be writing <i>lots</i> of them. They allow us to separate large applications into small, reusable sections. Because we only care about the function interface, we can change the implementation at will, which is very useful.</p>
+          <p>You may be feeling a bit overwhelmed by this material, but don't worry, we will be going over this in much more detail during the course.</p>
+          <p>For now, it's enough that you should:</p>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>be able to declare a function using the <code class="snippet">def</code> keyword</li>
+            <li>be able to write a function that takes parameters</li>
+            <li>be able to invoke the function</li>
+            <li>be able to use the <code class="snippet">return</code> keyword to get information out of a function
+            </li>
           </ul>
         </article>
       </section>
