@@ -89,8 +89,8 @@
           <h3>Comments</h3>
           <p>Comments are parts of a program that will be ignored by the computer. Comments in Python are denoted by # starting on a line like in the example below:</p>
           <pre><code class="language-python">print('hello northcoders')
-
-# this will print the message 'hello northcoders' to the screen</code></pre>
+          </code><br><code class="language-python">
+          # this will print the message 'hello northcoders' to the screen</code></pre>
         </article>
         <article>
           <h1>The Python REPL</h1>
@@ -172,11 +172,15 @@
           <pre><code class="language-python">dir(5)</code></pre>
           <p>we will get a very different set of properties. That's because Python can do <b>type inference</b> - it can determine from an input what the data type is. Then, it will build the correct object with the right amount of memory and the appropriate added features.</p>
           <p>If you ever encounter some data in Python and you are unsure of its type, there is a handy command to find it out - <code class="snippet">type</code>. Try these examples at the Python prompt:</p>
-          <pre><code class="language-python">type('hello') # <class 'str'> (i.e. a string)
-            type(7) # <class 'int'>
-            type(False) # <class 'bool'>
-            type(3.14159) # <class 'float'>
-            type(None) # <class 'NoneType'></code></pre>
+          <pre><code class="language-python">type('hello') # [class 'str'] (i.e. a string)
+          </code><code class="language-python">
+            type(7) # [class 'int']
+            </code><code class="language-python">
+            type(False) # [class 'bool']
+            </code><code class="language-python">
+            type(3.14159) # [class 'float']
+            </code><code class="language-python">
+            type(None) # [class 'NoneType']</code></pre>
           <p>Even though the <code class="snippet">None</code> keyword literally signifies a complete absence of data, it is an object with properties in Python - try <code class="snippet">dir(None)</code>.</p>
           <p>So to summarise, Python considers every piece of data to have a <i>type</i>. This is information that is associated with the data that tells Python:</p>
           <ul>
@@ -189,47 +193,50 @@
         <article>
           <h1>Variable declarations</h1>
           <blockquote><p>A variable is used to store a piece of data or information.</p></blockquote>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
+          <p>So far, we have just been typing whatever data we need directly into the Python interpreter. This gets tedious, and of course, we want to be able to store data to use later. Some data needs to be stored <i>persistently</i>, meaning that it can be retrieved repeatedly, perhaps by different computers. We use tools like hard drives, SSDs and databases to keep such data. However, in programming, we often need to store pieces of data temporarily (in the computer's memory) while we process it. That's where variables come in.</p>
+          <p>In Python, to assign a variable, we just need to make up a name for the variable and use the <code class="snippet">=</code> symbol to assign it to a value. For example, type the following:</p>
+          <pre><code class="language-python">greeting = 'hello'</code></pre>
+          <p>Apparently, nothing happens, but behind the scenes, lots is going on. This short statement means:</p>
           <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Get the piece of data "hello" and figure out its data type.</li>
+            <li>Ask the operating system of the computer for a chunk of memory big enough to hold an object for the data and all the added features.</li>
+            <li>Put the data object in the memory at the location specified by the operating system.</li>
+            <li>Remember the memory location of the data and label it with the name "greeting" so that the user doesn't have to use a complicated memory address.
+            </li>
           </ol>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
+          <p>Now, this name can be used to retrieve the data:</p>
+          <pre><code class="language-python">print(greeting)</code></pre>
+          <p>If you want to see exactly where the data is stored, type:</p>
+          <pre><code class="language-python">id(greeting)</code></pre>
+          <p>For me, the output from this command was a number: <code class="snippet">4347887728</code>. You will likely see something different, depending on your machine. In this case, my laptop responded to Python's request for memory by providing a section of memory starting at location 4347887728 in the RAM chip.</p>
+          <p>So the <code class="snippet">print(greeting)</code> command is just shorthand for:</p>
+          <pre><code class="language-python">print the object stored at memory location 4347887728</code></pre>
+          <p>We could, if we needed to, access our "hello" data by using this memory address but (a) we don't need to, (b) it's a pain and (c) it's a bad idea in almost all circumstances. The purpose of the variable is to make it easy, reliable and straightforward to get the data we need and use it as we want.</p>
+          <p>The name "variable" arises because we can reuse the name for different pieces of data. For example, we can reassign the <code class="snippet">greeting</code> variable to a different value:</p>
+          <pre><code class="language-python">greeting = 'Howdy'</code><br>
+            <code class="language-python">
+            print(greeting) # outputs Howdy</code></pre>
+          <p>If you use the <code class="snippet">id()</code> function, you should find that this new value is at a different memory location. We've just changed the place in memory that <code class="snippet">greeting</code> refers to. In the background, Python will quietly get rid of the "hello" text that we stored at the previous location so that the memory is available to be used again. This process is called "garbage collection".</p>
+          <p>Some computing languages are <b>statically typed</b>, meaning that when you assign a variable you fix what type it is. So, for example, in Java, we could declare our greeting like this:</p>
+          <pre><code class="language-python">String greeting = "hello"</code></pre>
+          <p>The <code class="snippet">String</code> keyword determines the variable type - Java does not do type inference. However, once that is set, it can't be changed. By contrast, Python is <b>dynamically typed</b>. It's perfectly possible to change the variable's data type:</p>
+          <pre><code class="language-python">greeting = 752</code></pre>
+          <p>Python will reassess what the <code class="snippet">greeting</code> variable is for, changing not only its memory address but also the type of object it stores there. If you use the <code class="snippet">type</code> or <code class="snippet">dir</code> commands, you will see that <code class="snippet">greeting</code> is now an integer.</p>
         </article>
         <article>
           <h1>Constants</h1>
-          <p></p>
-          <p></p>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <pre><code class="language-python"></code></pre>
-          <p></p>
-          <p></p>
+          <p>Python is <b>dynamically typed</b> meaning that variables can hold any data type and we can change that type as we wish.</p>
+          <p>This feature of being able to change the assigned value of a variable is really useful in most circumstances, but there are some situations where we want to say something like, "Store this piece of data with this variable name and make it unchangeable throughout the life of the program". An example might be storing a web address, for example. Such variables are called <b>constants</b> and many languages provide support for enforcing constant values.</p>
+          <p>Python does <i>not</i> support this feature. All variables can be reassigned to different values. However, there is a very strong convention that values that are intended to be constant should be written in capitals. So for example, we could write:</p>
+          <pre><code class="language-python">WEBSITE_URL = 'https://www.northcoders.com'</code></pre>
+          <p>In a Python program, the capitals would indicate to another developer that <code class="snippet">WEBSITE_URL</code> should not be reassigned. However, nothing would prevent this - it would be syntactically valid to later write:</p>
+          <pre><code class="language-python">WEBSITE_URL = 'https://www.google.com'</code></pre>
+          <p>But it would be <i>very naughty</i>.</p>
+          <p>Another very strong Python convention is the use of <b>snake_case</b> for the naming of most variables. Many other languages use a <b>camelCase</b> convention, but (as we will see in the course), conventional Python uses variable names like <code class="snippet">customer_name</code> or <code class="snippet">order_number</code> - i.e. connect separate words with an underscore.</p>
         </article>
         <article>
           <h1>Exercises</h1>
-          <p></p>
+          <p>To practise making variables, the next step is to fork and clone a repo so that you can complete some exercises on this and future topics.</p>
           <p></p>
           <p></p>
           <p></p>
