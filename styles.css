@@ -73,20 +73,6 @@ section li {
   margin: 15px 0px 0px 20px;
 }
 
-.code-block {
-  display: block;
-  white-space: normal;
-  text-align: left;
-  position: relative;
-  word-break: normal;
-  word-wrap: normal; 
-  line-height: 2;
-  background-color: #f7f7f7;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 5px;
-}
-
 blockquote {
   font-style: bold;
   font-size: 1.1em;
@@ -101,6 +87,7 @@ blockquote {
   background-color: #eee;
   border-radius: 3px;
   font-family: monospace;
+  font-size: 1.15em;
   padding: 0 3px;
 }
 
