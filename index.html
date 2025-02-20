@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Intro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="themes/prism.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Introduction to Python</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#Python_Variables">Python Variables</a></li>
+        <li><a class="nav-link" href="#Functions">Functions</a></li>
+        <li><a class="nav-link" href="#Lists">Lists</a></li>
+        <li><a class="nav-link" href="#Dictionaries">Dictionaries</a></li>
+        <li><a class="nav-link" href="#Branching_and_Logic">Branching and Logic</a></li>
+        <li><a class="nav-link" href="#Iteration">Iteration</a></li>
+        <li><a class="nav-link" href="#Exercises">Exercises</a></li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+      </ul>  
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <article>
+          <h1>Introduction to programming with Python<h1>
+          <h2>What is programming ?</h2>
+          <p>
+          Computers require precise instructions in order to perform actions or complete tasks. Humans write programs or software that can then be turned into instructions that computers can understand in order to perform tasks.
+          </p>
+          <p>
+          Programming languages provide a set of rules for writing out instructions that can be used by humans but that will ultimately be broken down into precise instructions for a machine.
+          </p>
+          <h2>Computer programs</h2>
+          <p>
+          A computer program is a set of instructions written for machines to execute. Machines themselves only deal with binary data at a fundamental level. Binary data means bits (short for binary digits which are either 1s or 0s.) This data is used to carry out tasks by the computer. We could, in theory, write code which is just a series of bits. However, it is incredibly difficult for humans to reason about code at this level.
+          </p>
+          <p>
+          A higher level programming language provides greater abstraction away from machine language so that humans can write instructions that will ultimately be executed by a computer. <b>Higher-level languages</b> are designed to make writing instructions far simpler: eventually these programs will be converted into machine language so the machine can execute them.
+          </p>
+          <h2>Python</h2>
+          <p>
+          Python is a <b>high-level programming language</b> and one of the most popular programming languages in the world. It is used for a wide variety of tasks, including data analysis, scientific computing and managing Web page servers. Well-known software companies, such as Netflix, Spotify, Facebook, and Google, use Python to create some or all of their products.
+          </p>
+        </article>
+        <article>
+          <h1>Data and functions</h1>
+          <p>A fundamental concept in computer programming and within Python are the notions of data and functions. Data could be any piece of information - numbers, images or text. A programming language will usually have some basic data types built-in to its code already.</p>
+          <p>One of these <b>native</b> (built-in) data types in Python is a <b>string</b>. A string is a piece of text enclosed inside quotation marks, written like this:</p>
+          <pre><code class="language-python">'hello northcoders'</code></pre>
+          <p>A <b>function</b> is a set of instructions within a program that can be used to perform an action. A large part of programming involves writing functions that will carry out meaningful tasks with our data types.</p>
+          <p>Functions are one of the fundamental units of Python. A function will often be designed to take inputs, carry out some tasks and provide an output.</p>
+          <p>Think of a function called <code class="snippet">add</code>. This function will take in number inputs (some data), and then produce an output. So if we passed in the input values of <code class="snippet">10</code> and <code class="snippet">32</code> into our add function, we could expect it to output a value of <code class="snippet">42</code>. It is our task as developers to implement or build functions that will carry out tasks like the one previously mentioned.</p>
+          <h2>Our first program</h2>
+          <h3>"hello northcoders"</h3>
+          <p>We can now think about writing our first Python program using some data and a function. In order to save time and make it easy for developers to write software, programming languages will often come with pre-made built-in functions or tools in order to carry out certain kinds of important work.</p>
+          <p><code class="snippet">print</code> is one such tool or function and is very commonly used in Python. It is an in-built function we can use in order to print information or data to our console.</p>
+          <p>Once we have written the function, we can update our code in order to actually <b>use</b> the function. Unless we actually write the code to say we are using the function, then nothing will happen.</p>
+          <p>In order to use <code class="snippet">print</code> we must then <b>call</b> the function. <b>Calling</b> or <b>invoking</b> a function means running the function so its instructions are <b>executed</b>, like below:</p>
+          <pre><code class="snippet">print('hello northcoders!')</code></pre>
+          <p>The example above consists of 3 different parts:</p>
+          <ol>
+            <li>
+              <pre><code class="language-python">print</code></pre>
+              <ul>
+                <li>the name of a function, in this case <code class="snippet">print</code></li>
+              </ul>
+            </li>
+            <li>
+              <pre><code class="language-python">print()</code></pre>
+              <ul>
+                <li>parentheses. This notation after the name of a functions means we are <b>calling the function</b></li>
+              </ul>
+            </li>
+            <li>
+              <pre><code class="language-python">print('hello northcoders')</code></pre>
+              <ul>
+                <li>an <b>input</b>, which is the string of text: <code class="snippet">"hello northcoders"</code></li>
+              </ul>
+            </li>
+          </ol>
+          <h3>Strings</h3>
+          <p>The input into our function <code class="snippet">print</code> was the following piece of data: <code class="snippet">"hello northcoders"</code>.</p>
+          <p>Any characters enclosed inside quotation marks <code class="snippet">"</code> or <code class="snippet">'</code> are known as a string. We can think of this as a type of data used for storing text information.</p>
+          <pre><code class="language-python">'hello northcoders'</code></pre>
+          <h3>Comments</h3>
+          <p>Comments are parts of a program that will be ignored by the computer. Comments in Python are denoted by # starting on a line like in the example below:</p>
+          <pre><code class="language-python">print('hello northcoders')
+
+# this will print the message 'hello northcoders' to the screen</code></pre>
+        </article>
+        <article>
+          <h1>The Python REPL</h1>
+          <p>Python offers an easy way to try out code one command at a time. The <b>Read-Evaluate-Print-Loop</b> (or <b>REPL</b>) can be started just by running the <code>python</code> command. Then we can run individual commands at the prompt.</p>
+          <p>Each command that we run will be automatically printed to the console.</p>
+          <p>Open a terminal and enter the python command to open the REPL</p>
+          <pre><code class="language-python">python</code></pre>
+          <p>Once you've opened it, try a simple command. Type the expression below and press enter to run the code. (You don't need to type the <code class="snippet">>>></code>, just the <code class="snippet">5 + 5</code>)</p>
+          <pre><code class="language-python">>>> 5 + 5</code></pre>
+          <p>This should be evaluated and <code class="snippet">10</code> printed to your terminal.</p>
+          <p>We can run Python commands one at a time like this. This is very useful for trying things out quickly or running simple commands as and when you need them.</p>
+          <p>Run the command below to try out the program from the previous section.</p>
+          <pre><code class="language-python">>>> print('hello northcoders')</code></pre>
+          <p>To exit the <code class="snippet">REPL</code> and return to your normal terminal, you can either run the in-built function <code class="snippet">exit()</code> or use the <code class="snippet">ctrl + d</code> keyboard shortcut.</p>
+        </article>
+        <article>
+          <h1>Running Python scripts</h1>
+          <p>As well as running code directly in the <code class="snippet">REPL</code>, we can create Python files that can be edited and re-used.</p>
+          <p>We are going to use a file called <code class="snippet">example.py</code> and in it write some Python code.</p>
+          <p>Make a new directory and open it with <code class="snippet">VSCode</code>. Inside of that directory, create a new file called <code class="snippet">example.py</code>.</p>
+          <p>Edit this file so that it contains the same print statement as in the previous example, make sure you save the file once you're done!</p>
+          <pre><code class="language-python">print('hello northcoders')</code></pre>
+          <p>We can now use the <code class="snippet">python</code> command followed by the file we want to run, which runs the Python <b>interpreter</b>, in order to run this piece of code:</p>
+          <pre><code class="language-python">$ python example.py</code></pre>
+          <p>The greeting should be printed to the terminal. If you get an error about not being able to open the file, make sure that your terminal is in the right directory. Use the <code class="snippet">ls</code>, <code class="snippet">cd</code> and <code class="snippet">pwd</code> commands to make sure that your terminal is in the same directory as the <code class="snippet">example.py</code> file.</p>
+        </article>
+      </section>
+      <section class="main-section" id="Python_Variables">
+        <header>Python Variables</header>
+        <article>
+          <h1>Storing data</h1>
+          <p>Python has five basic data types. These are:</p>
+          <ul>
+            <li><b>Strings</b> - including all kinds of characters that you can write: letters, numbers, punctuation, and symbols like emojis</li>
+            <li><b>Integers</b> - positive or negative whole numbers, including zero</li>
+            <li><b>Floating point</b> numbers - what you might think of as "decimals", numbers expressing fractional quantities. (The word "decimal" is not used in this context in computing because all numbers - including fractional quantities - are stored in <i>binary</i> rather than decimal format)</li>
+            <li><b>Booleans</b> - <code class="snippet">True</code> / <code class="snippet">False</code></li>
+            <li><b>None</b> - empty data</li>
+          </ul>
+          <p>There are many other data types (in fact, potentially an infinite number because you can make your own), but these are the basics.</p>
+          <p>But, first things first, what exactly is a data "type" and why do we need them? To answer this, we need to think about how computers store data in memory.</p>
+          <p>Probably the simplest kind of data is a Boolean, which just means a value that is either <code class="snippet">True</code> or <code class="snippet">False</code>. All data stored on the RAM chip on your computer is stored in bits. A bit is just a tiny switch on a memory chip that is either on or off.</p>
+          <ul>
+            <li><code class="snippet">True</code> is represented by 1 ("on").</li>
+            <li><code class="snippet">False</code> is represented by 0 ("off").</li>
+          </ul>
+          <p>What about storing an integer? Well, it depends on how big a number you might want to store. A common choice is that you might use 32 bits to store an integer. That means you could store a number up to 2,147,483,647 which is 2<sup>31</sup> - 1. In binary, that is written:</p>
+          <blockquote><p>1111111111111111111111111111111<sub>2</sub></p></blockquote>
+          <p>If you can be bothered to count, you will find that there are 31 ones. The extra bit is used to signify whether the number is positive or negative.</p>
+          <p>We also need some way to tell the programming language how to interpret this data. For example, how can the computer tell when we store a <code class="snippet">1</code> whether we mean the number 1 or the boolean value <code class="snippet">True</code>?</p>
+          <p>To summarise then, even for basic types of data, we need to be able to:</p>
+          <ul>
+            <li>allocate the correct amount of memory</li>
+            <li>have some way of figuring out how to interpret the data.
+            </li>
+          </ul>  
+        </article>
+        <article>
+          <h1>Python Objects</h1>
+          <p>For each data type, Python needs to be able to:</p>
+          <ul>
+            <li>allocate the correct amount of memory</li>
+            <li>have some way of figuring out how to interpret the data.
+            </li>
+          </ul> 
+          <p>Although Python performs both these tasks automatically, storage is complicated by the fact that Python associates lots of extra properties and added pieces of code (called "methods") along with even basic data types. Consider a simple piece of text like "hello". In principle, each letter can be stored with just one byte (8 bits) of memory, so this should only take five bytes of RAM. However, in Python, it takes up much more space.</p>
+          <p>To see this, in the Python REPL, type:</p>
+          <pre><code class="language-python">dir('hello')</code></pre>
+          <p>You will see quite a complicated output, something like this:</p>
+          <pre><code class="language-python">['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']</code></pre>
+          <p>The <code class="snippet">dir</code> command lists the attributes or properties of any piece of data in Python. All of these items are pieces of data or code that Python has added to our little piece of "hello" text to make it easier to work with. For example, at the next prompt, we could make use of the <code class="language-python">upper</code> method, which is for converting text to upper case:</p>
+          <pre><code class="language-python">'hello'.upper()</code></pre>
+          <p>This should output:</p>
+          <pre><code class="language-python">'HELLO'</code></pre>
+          <p>Adding in handy little tools like this is one of the reasons Python is easy to use, but conceptually it can be quite tricky to understand sometimes, and it does make Python slower than other languages like C. Enriched data types that include this kind of added feature are usually called "objects". A very important fact is that:</p>
+          <blockquote><p>Everything in Python is an object.</p></blockquote>
+          <p>In the coming weeks, we will learn how to understand and manipulate the features of Python objects.</p>
+          <p>Observe that the Python interpreter has done something pretty clever here - it has realised that "hello" is a piece of text and provided it with useful added features appropriate for that type of data. Instead, if we examine how Python stores a number,</p>
+          <pre><code class="language-python">dir(5)</code></pre>
+          <p>we will get a very different set of properties. That's because Python can do <b>type inference</b> - it can determine from an input what the data type is. Then, it will build the correct object with the right amount of memory and the appropriate added features.</p>
+          <p>If you ever encounter some data in Python and you are unsure of its type, there is a handy command to find it out - <code class="snippet">type</code>. Try these examples at the Python prompt:</p>
+          <pre><code class="language-python">type('hello') # <class 'str'> (i.e. a string)
+            type(7) # <class 'int'>
+            type(False) # <class 'bool'>
+            type(3.14159) # <class 'float'>
+            type(None) # <class 'NoneType'></code></pre>
+          <p>Even though the <code class="snippet">None</code> keyword literally signifies a complete absence of data, it is an object with properties in Python - try <code class="snippet">dir(None)</code>.</p>
+          <p>So to summarise, Python considers every piece of data to have a <i>type</i>. This is information that is associated with the data that tells Python:</p>
+          <ul>
+            <li>How much memory is needed to store it</li>
+            <li>How to interpret the raw bits comprising the data</li>
+            <li>What added features should come with this data
+            </li>
+          </ul>
+        </article>
+        <article>
+          <h1>Variable declarations</h1>
+          <blockquote><p>A variable is used to store a piece of data or information.</p></blockquote>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+        </article>
+        <article>
+          <h1>Constants</h1>
+          <p></p>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+        </article>
+        <article>
+          <h1>Exercises</h1>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </article>
+        <article>
+          <h1>Summary</h1>
+          <p></p>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <article>
+          <h1>What is a Function?</h1>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <blockquote><p></p></blockquote>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+        </article>
+        <article>
+          <h1>Parameters and Arguments</h1>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+        </article>
+        <article>
+          <h1>Function Scope</h1>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+        </article>
+        <article>
+          <h1>The Return Keyword</h1>
+          <p></p>
+          <blockquote><p></p></blockquote>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+          <pre><code class="language-python"></code></pre>
+          <p></p>
+        </article>
+        <article>
+          <h1>Summary</h1>
+          <p></p>
+          <p></p>
+          <p></p>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Lists">
+        <header>Lists</header>
+        <article>
+          <h1></h1>
+        </article>
+        <article>
+          <h1></h1>
+        </article>
+        <article>
+          <h1></h1>
+        </article>
+        <article>
+          <h1></h1>
+        </article>
+        <article>
+          <h1></h1>
+        </article>
+        <article>
+          <h1></h1>
+        </article>
+        <article>
+          <h1></h1>
+        </article>
+      </section>
+      <section class="main-section" id="Dictionaries">
+        <header>Dictionaries</header>
+        <article></article>
+      </section>
+      <section class="main-section"id="Branching_and_Logic">
+        <header>Branching and Logic</header>
+        <article></article>
+      </section>
+      <section class="main-section" id="Iteration">
+        <header>Iteration</header>
+        <article></article>
+      </section>
+      <section class="main-section" id="Exercises">
+        <header>Exercises</header>
+        <article></article>
+      </section>
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <article>
+          <ul>
+            <li>
+              All the documentation in this page is taken from
+              <a href="https://northcoders.com/" target="_blank">Northcoders</a>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <script src="prism.js"></script>
+  </body>
+</html>
