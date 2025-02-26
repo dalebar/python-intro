@@ -95,6 +95,15 @@ blockquote {
   text-indent: 38px
 }
 
+.double-indent {
+  text-indent: 76px
+}
+
+h1 {
+  font-size: 1.8em;
+  
+}
+
 @media only screen and (max-width: 815px) {
   /* For mobile phones: */
   #navbar ul {

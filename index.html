@@ -26,7 +26,6 @@
       <section class="main-section" id="Introduction">
         <header>Introduction</header>
         <article>
-          <h1>Introduction to programming with Python<h1>
           <h2>What is programming ?</h2>
           <p>
           Computers require precise instructions in order to perform actions or complete tasks. Humans write programs or software that can then be turned into instructions that computers can understand in order to perform tasks.
@@ -237,7 +236,7 @@
         <article>
           <h1>Exercises</h1>
           <p>To practise making variables, the next step is to fork and clone a repo so that you can complete some exercises on this and future topics.</p>
-          <p>Follow the link to this GitHub repo: <a href="https://github.com/dalebar/python-practise">https://github.com/dalebar/python-practise</a> and follow the instructions in the README to get set up.</p>
+          <p>Follow the link to this GitHub repo: <a href="https://github.com/dalebar/python-practice">https://github.com/dalebar/python-practice</a> and follow the instructions in the README to get set up.</p>
           <p>Once you have the repo set up and cloned, complete the exercises in <code class="snippet">01_variables</code>.</p>
           <p>This is the only file you need to complete for now. The others will follow the relevant sections on this platform.</p>
         </article>
@@ -395,42 +394,410 @@
       <section class="main-section" id="Lists">
         <header>Lists</header>
         <article>
-          <h1></h1>
+          <p>We have already seen some of the basic data types available in Python. However, after you have been programming for a short time, it becomes clear that being restricted to these data types would severely hamper our ability to do useful things. Very soon, we will be able to deal with other, more complicated, data structures.</p>
+          <p>Eventually, we will get around to designing our own data structures (using <b>object-oriented</b> programming techniques), but there are a few that come as standard with the Python language:</p>
+          <ul>
+            <li>lists</li>
+            <li>dictionaries</li>
+            <li>tuples</li>
+            <li>sets</li>
+          </ul>
+          <p>They are all useful in different circumstances. We'll start with lists.</p>
+          <h2>Storing multiple items</h2>
+          <p>Consider a situation where we want to create variables that represent a <b>list</b> of data:</p>
+          <pre><code class="language-python">item0 = 'apple'
+          </code><code class="language-python">
+            item1 = 'banana'
+          </code><code class="language-python">
+            item2 = 'strawberry'</code></pre>
+          <p>We could continue to create variables in this way: however, we would have to keep declaring new variables every time we wanted to add something to this list. Instead, we can think of storing this data in a single <b>data structure</b></p>
+          <h2>Lists</h2>
+          <blockquote><p>A Python list is an <b>ordered collection of data.</b></p></blockquote>
+          <h2>Declaring lists</h2>
+          <p>Python lists are written using <code class="snippet">[</code> and <code class="snippet">]</code> with each item inside the square brackets separated by a comma. The list is stored in memory as an object, just like other data types, and can be assigned to a variable in the same way.</p>
+          <pre><code class="language-python">items = ['apple', 'banana', 'strawberry']</code></pre>
+          <p><code class="snippet">items</code> is a list containing 3 <b>elements</b>, an <b>element</b> being an item inside the list. The strings, <code class="snippet">"apple"</code>, <code class="snippet">"banana"</code> and <code class="snippet">"strawberry"</code> are said to be the <b>3 elements</b> making up the list <code class="snippet">items</code>. Using a plural variable name helps emphasise that this is a collection of data.</p>
+          <h2>Zero indexing</h2>
+          <p>Once we have declared the list, we can refer to its elements using the position they appear at. In computer science, <b>zero indexing</b> means that we start counting ordered collections from <b>zero</b>. All Python lists are <b>zero-indexed</b>. We can use the index position together with square bracket notation to access a list element at a specific position:</p>
+          <pre><code class="language-python">letters = ['a', 'b', 'c']
+          </code><code class="language-python">
+            letters[0] # evaluates to 'a'
+          </code><code class="language-python">
+            letters[1] # evaluates to 'b'</code></pre>
+          <p>A list cannot be accessed with a position that is bigger than the list length - an error will result:</p>
+          <pre><code class="language-python">letters = ['a', 'b', 'c']
+            # only 3 items
+            </code><code class="language-python">
+            letters[5] # causes IndexError</code></pre>
         </article>
         <article>
-          <h1></h1>
+          <h1>The Length Property</h1>
+          <p>All lists have a length property indicating the number of items present inside the list - we use the <code class="snippet">len</code> function to access this.</p>
+          <pre><code class="language-python">items = ['apple', 'banana', 'strawberry']
+          </code><code class="language-python">
+          len(items) # will be 3</code></pre>
+          <p>In many languages, lists and ordered collections of data have limitations on the amount of data they can store. In Python, the physical limitations of a list length are usually far beyond what will normally be needed.</p>
+          <p>In addition, Python lists can hold items of multiple data types, which makes them extremely flexible data structures. The length property of a list will be updated when the list contents are altered. Python lists are said to be <b>mutable</b> as we can update their contents over time.</p>
+          <pre><code class="language-python">items.append('kiwi') # this will add "kiwi" onto the end of the list, at index position 3
+          </code><code class="language-python">
+            items # returns ['apple', 'banana', 'strawberry', 'kiwi']
+          </code><code class="language-python">
+            len(items) # will now be 4</code></pre>
+          <p>Note that the idea of mutability is different from what happens when we reassign a variable. Remember before, when we changed a simple variable:</p>
+          <pre><code class="language-python">greeting = 'hello'</code></pre>
+          <p>and then:</p>
+          <pre><code class="language-python">greeting = 'howdy'</code></pre>
+          <p>In that case, we changed the memory location that the variable pointed to. In this case, we can change the content of the list but leave its memory location unchanged.</p>
+          <pre><code class="language-python">vegetables = ['cabbage', 'carrot', 'celery']
+          </code><code class="language-python">
+            id(vegetables) # returns some address eg 4314611264
+          </code><br><code class="language-python">
+            vegetables.append('cauliflower')
+          </code><code class="language-python">
+            vegetables # returns ['cabbage', 'carrot', 'celery', 'cauliflower']
+          </code><code class="language-python">
+            id(vegetables) # returns 4314611264 (unchanged)</code></pre>
+          <p>The trick of reassigning a list variable still works and will change the memory address:</p>
+          <pre><code class="language-python">vegetables = ['broccoli', 'beans', 'brussels sprouts']
+          </code><code class="language-python">
+            id(vegetables) # will return a different address eg 4314629056</code></pre>
         </article>
         <article>
-          <h1></h1>
+          <h1>Slicing</h1>
+          <p>As well as retrieving individual elements, we can retrieve elements between 2 indexes as well. Getting a sub-list is referred to as <code class="snippet">slicing</code>, as in we take a slice of the original list.</p>
+          <p>The syntax for creating a slice is to use 2 indexes separated by a colon: <code class="snippet">[startIndex: endIndex]</code></p>
+          <ul>
+            <li>The first index is where to start slicing from and is <b>inclusive</b></li>
+            <li>The second index is where to stop slicing and is <b>exclusive</b>
+            </li>
+          </ul>
+          <p>So <code class="snippet">my_list[1:3]</code> would include the elements at indexes 1 and 2.</p>
+          <pre><code class="language-python">letters = ['a', 'b', 'c', 'd', 'e']
+          </code><br><code class="language-python">
+            letters[1:3] # ['b', 'c']</code></pre>
+          <p>When creating a slice, it is important to note that this creates a new list and the original list is left unchanged.</p>
+          <pre><code class="language-python">letters = ['a', 'b', 'c', 'd', 'e']
+          </code><br><code class="language-python">
+            letters[2:3] # ['c']
+          </code><code class="language-python">
+            letters[1:5] # ['b', 'c', 'd', 'e']
+          </code><code class="language-python">
+            letters # ['a', 'b', 'c', 'd', 'e']
+          </code><br><code class="language-python">
+            letters[0:-1] # ['a', 'b', 'c', 'd'] negative indexes can be used as well</code></pre>
+          <p>It is worth noting that both of the indexes are optional and can be omitted. If you omit one or both index they will use their default values:</p>
+          <ul>
+            <li><i>startIndex</i> - defaults to 0, i.e. starting at the first element</li>
+            <li><i>endIndex</i> - defaults to the length of the list, i.e. stopping at the last element</li>
+          </ul>
+          <pre><code class="language-python">all_but_first	= letters[1:] # ['b', 'c', 'd', 'e']
+          </code><br><code class="language-python">
+            all_but_last	= letters[:-1] # ['a', 'b', 'c', 'd']</code></pre>
         </article>
         <article>
-          <h1></h1>
+          <h1>List Methods</h1>
+          <p>We will frequently want to update lists by adding or removing items.</p>
+          <p>Python lists come with some built-in methods (i.e. code features) that can be chained onto lists themselves:</p>
+          <p><code class="snippet">.append()</code> is a <b>mutating list method</b>. It will mutate a list by adding an item to the end of a list.
+          </p>
+          <pre><code class="language-python">letters = ['a', 'b', 'c']
+          </code><code class="language-python">
+            letters.append('d')
+          </code><code class="language-python">
+            # letters is now ["a", "b", "c", "d"]</code></pre>
+          <p><code class="snippet">.pop()</code> is a <p>mutating list method</p> that acts by removing an item from the specified position, or the end if no position is specified. It returns the value of the removed item and leaves the original list changed.</p>
+          <pre><code class="language-python">letters = ['a', 'b', 'c', 'd']
+          </code><code class="language-python">
+            last_letter = letters.pop() # last_letter is now 'd'
+            # letters is now ['a', 'b', 'c']
+          </code><code class="language-python">
+            removed_letter = letters.pop(1) # removed_letter is 'b'
+            # letters is now ['a', 'c']</code></pre>
+          <p>There are many more methods listed in the <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Python documentation.</a></p>
         </article>
         <article>
-          <h1></h1>
+          <h1>Nested lists</h1>
+          <p>Note that lists can contain any kind of Python object...</p>
+          <pre><code class="language-python">crazy_list = ['alice', 2, True, 67.87, None, 'dave']</code></pre>
+          <p>... including other lists:</p>
+          <pre><code class="language-python">crazier_list = ['betty', 19, False, 0.000267, None, crazy_list]</code></pre>
+          <p>Lists can also be constructed entirely from other lists. For example:</p>
+          <pre><code class="language-python">best_trilogies = [
+          </code><code class="language-python">
+            ['fellowship', 'twin towers', 'return of the king'],
+          </code><code class="language-python">
+            ['a new hope', 'empire strikes back', 'return of the jedi'],
+          </code><code class="language-python">
+            ['godfather I', 'godfather II', 'godfather III']
+          </code><code class="language-python">
+          ]</code></pre>
+          <p>Now, each item is itself a list:</p>
+          <pre><code class="language-python">best_trilogies[1] # ['a new hope', 'empire strikes back', 'return of the jedi']</code></pre>
+          <p>We can access members of this list by continuing to use square brackets:</p>
+          <pre><code class="language-python">best_trilogies[1][0] # 'a new hope'</code></pre>
+          <p>The first set of square brackets is evaluated first. We can see what that evaluates to by printing it</p>
+          <pre><code class="language-python">best_trilogies[1] # ['a new hope', 'empire strikes back', 'return of the jedi']</code></pre>
+          <p>Once this is done the second set of square brackets is evaluated, giving us index 0 from the <code class="snippet">['a new hope', 'empire strikes back', 'return of the jedi']</code> list. This results in the whole expression evaluating to <code class="snippet">'a new hope'</code>.</p>
         </article>
         <article>
-          <h1></h1>
+          <h1>Exercises</h1>
+          <p>For this section, you'll be completing some exercises on lists in the <a href="https://github.com/dalebar/python-practice">de-precourse repo</a> that you forked and cloned previously.</p>
+          <p>Work through the exercises in <code class="snippet">02_lists</code> and complete each function.</p>
+          <p>Use the notes in this lesson as well as the documentation. Don't feel restricted to the methods we've covered so far, and do your own research trying out new methods you find.</p>
+          <p>Once you've completed the exercises you can move on.</p>
         </article>
         <article>
-          <h1></h1>
+          <h1>Summary</h1>
+          <ul>
+            <li>Python lists are for collecting a number of data items in a particular order.</li>
+            <li>Lists are declared with square brackets <code class="snippet">[...]</code> and items can be accessed using a zero-based index.</li>
+            <li>Numerous list methods can be accessed using dot notation.</li>
+          </ul>
         </article>
       </section>
       <section class="main-section" id="Dictionaries">
         <header>Dictionaries</header>
-        <article></article>
+        <article>
+        <h2>Dictionaries</h2>
+        <p>Lists are ordered collections of data we can use for storing collections of items, but there are limitations to this data structure when it comes to organising data:</p>
+        <pre><code class="language-python">details = ['Patricia', 'Lloyd', 55, 'St Marys', 'Leigh', 'Bolton'];</code></pre>
+        <h2>Storing named data items</h2>
+        <p>The list <code class="snippet">details</code> stores several values representing different details about a particular person. However, it becomes increasingly difficult to work out what the data represents, as the only way of accessing items is by their index position.</p>
+        <p>We could instead use a Python <b>dictionary</b> to store the data values. A dictionary is a collection of key-value pairs called <b>properties</b>. Here is the same data provided as a dictionary:</p>
+        <pre><code class="language-python">details = {
+        </code><code class="language-python indent">
+          'first_name': 'Patricia',
+        </code><code class="language-python indent">
+          'last_name': 'Lloyd',
+        </code><code class="language-python indent">
+          'age': 55,
+        </code><code class="language-python indent">
+          'place_of_work': 'St Marys',
+        </code><code class="language-python indent">
+          'regional_office': 'Leigh',
+        </code><code class="language-python indent">
+          'alternative_location': 'Bolton'
+        </code><code class="language-python">
+        }</code></pre>
+        <p>The <b>keys</b> (values to the left of the colons) allowed us to store our data values by a known label, making it much more intuitive for us to see what the data represents.</p>
+        <h2>Accessing dictionaries</h2>
+        <p>The name "dictionary" suggests a process of "looking up" or accessing property values using a property key. Suppose we have a dictionary with two properties, <code class="snippet">name</code> and <code class="snippet">age</code>:</p>
+        <pre><code class="language-python">person = {
+        </code><code class="language-python indent">
+          'name': 'Anat',
+        </code><code class="language-python indent">
+          'age': 24,
+        </code><code class="language-python">
+        }</code></pre>
+        <p>We can access the property value <code class="snippet">"Anat"</code> by accessing the dictionary with a property key using square bracket notation:</p>
+        <pre><code class="language-python">person['name'] # evaluates to "Anat"</code></pre>
+        <p>If a dictionary is accessed with a key that is not present inside a dictionary, then this will result in a <code class="snippet">KeyError</code>.</p>
+        <pre><code class="language-python">person['job'] # KeyError: 'job'</code></pre>
+        <p>To avoid a <code class="snippet">KeyError</code>, you can use the <code class="snippet">get</code> method, providing a default value:</p>
+        <pre><code class="language-python">person.get('job', 'General Assistant')</code></pre>
+        <p>The keys do not have to be strings. The exact criteria for what can be a key are a bit complicated, but as a guide, avoid using a list or another dictionary. Otherwise, most things will be fine. The only other rule is that keys should be unique within the dictionary - no duplicates are allowed.</p>
+        <h2>Ordering</h2>
+        <p>As of Python version 3.7, dictionaries are ordered. They are organised by insertion order. This means if you were to loop over the dictionary, you would get the keys back in the same order that they were inserted.</p>
+        <p>We can see this order by called the <code class="snippet">list() </code>function on a dictionary. This will return a list of all the keys, in insertion order.</p>
+        <pre><code class="language-python">person = {
+        </code><code class="language-python indent">
+          'name': 'Anat',
+        </code><code class="language-python indent">
+          'age': 24,
+        </code><code class="language-python">
+        }
+      </code><br><code class="language-python">
+        list(person) # ['name', 'age']</code></pre>
+        <p>This was not always the case, and in older versions of Python the order that keys are accessed could not be relied on so you may see this mentioned in older discussions about dictionaries.</p>
+        </article>
+        <article>
+          <h2>Nested Dictionaries</h2>
+          <p>Values can be any data type we like, including lists and other dictionaries.</p>
+          <pre><code class="language-python">person = {
+          </code><code class="language-python indent">
+            'name': 'Paul',
+          </code><code class="language-python indent">
+            'favourites': {
+          </code><code class="language-python double-indent">
+                'author': 'Terry Pratchett',
+          </code><code class="language-python double-indent">
+                'band': 'Nightwish'
+          </code><code class="language-python indent">
+            },
+          </code><code class="language-python indent">
+            'interests': ['coding', 'running']
+          </code><code class="language-python">
+          }</code></pre>
+          <p>Just as with lists, we can access nested values by chaining square brackets together.</p>
+          <pre><code class="language-python">person['favourites']['author'] # 'Terry Pratchett' 
+          </code><code class="language-python">
+            person['interests'][1] # 'running' </code></pre>
+          <p>Note that <code class="snippet">person['interests']</code> evaluates to a list, so we can then treat it as any other list and access an index using a number.</p>
+          <h2>Complex example</h2>
+          <p>This is the same for any values or levels of nesting. For example, this is a valid dictionary:</p>
+          <pre><code class="language-python">mad_dict = {
+          </code><code class="language-python indent">
+            'alice': 'pears',
+          </code><code class="language-python indent">
+            17: [1, 2, 3],
+          </code><code class="language-python indent">
+            3.14: """nearly
+          </code><code class="language-python double-indent">
+                    pi""",
+          </code><code class="language-python indent">          
+            True: False,
+          </code><code class="language-python indent">
+            print: "hello world", # The key here is the built-in print function
+          </code><code class="language-python indent">
+            "The key doesn't have to be reasonable. It could be totally ridiculous": {'and': 'this', 'is': 'a', "nested": ["dictionary", "as", "value"]}
+          </code><code class="language-python">
+          }
+          </code></pre>
+          <p>We can recover all of these values:</p>
+          <pre><code class="language-python">mad_dict['alice'] # pears
+          </code><code class="language-python">
+            mad_dict[17] # [1, 2, 3] (a list)
+          </code><code class="language-python">
+            mad_dict[17][1] # 2 (element 1 from the list)
+          </code><code class="language-python">
+            mad_dict[3.14] # 'nearly\n            pi' use the print command to see it print across two lines
+          </code><code class="language-python">
+            mad_dict[True] # False
+          </code><code class="language-python">
+            mad_dict[print] # hello world
+          </code><code class="language-python">
+            mad_dict["The key doesn't have to be reasonable. It could be totally ridiculous"]
+            # {'and': 'this', 'is': 'a', 'nested': ['dictionary', 'as', 'value']}
+          </code><code class="language-python">
+            mad_dict["The key doesn't have to be reasonable. It could be totally ridiculous"]['nested'][0]
+            # 'dictionary' - can you explain why?</code></pre>
+        </article>
+        <article>
+          <h2>Dynamic Keys</h2>
+          <p>When accessing or creating keys for our objects, we have been using literal values, such as strings or numbers. We can also use variables that contain those values in a similar manner.</p>
+          <p>Here we have a dictionary with 2 keys and a variable that contains the string 'age'.</p>
+          <pre><code class="language-python">
+            person = {
+          </code><code class="language-python indent">
+              'name': 'Anat',
+          </code><code class="language-python indent">
+              'age': 24,
+          </code><code class="language-python">
+          }
+          </code><br><code class="language-python">
+          key = 'age'
+          </code></pre>
+          <p>We can access the person's age by using the key directly:</p>
+          <pre><code class="language-python">person['age'] # 24</code></pre>
+          <p>We can also use the variable to achieve the same result:</p>
+          <pre><code class="language-python">person[key]   # 24</code></pre>
+          <p>This works by Python evaluating the expression inside the square brackets. In this case, the key variable is evaluated to the string of 'age' and is used to access the key of that value. This means that we can programmatically access keys depending on the value of the variable.</p>
+          <pre><code class="language-python">key = 'name'
+          </code><code class="language-python">
+            person[key] # 'Anat'</code></pre>
+          <p>Note the variable name of <code class="snippet">key</code> is not relevant - this would work with any variable. However, it's good practice to name variables after what they represent.</p>
+          <h2>Assigning keys</h2>
+          <p>We can also do the same thing when assigning values to keys:</p>
+          <pre><code class="language-python">person = {
+          </code><code class="language-python indent">
+            'name': 'Anat',
+          </code><code class="language-python indent">
+            'age': 24,
+          </code><code class="language-python">
+          }
+        </code><br><code class="language-python">
+        snack_type = 'biscuit'
+        </code><code class="language-python">
+        fav_snack = 'custard cream'
+        </code><br><code class="language-python">
+        person[snack_type] = fav_snack
+        </code><br><code class="language-python">
+        print(person) # {'name': 'Anat', 'age': 24, 'biscuit': 'custard cream'}</code></pre>
+          <p>This also works when creating new dictionaries:</p>
+          <pre><code class="language-python">
+            snacks = {
+          </code><code class="language-python indent">
+              'drink': 'tea',
+          </code><code class="language-python indent">
+              snack_type : fav_snack
+          </code><code class="language-python">
+          }
+          </code><br><code class="language-python">
+          print(snacks) # {'drink': 'tea', 'biscuit': 'custard cream'}
+          </code></pre>
+        </article>
+        <article>
+          <h2>Exercises</h2>
+          <p>For this section, you'll be completing some exercises on dictionaries in the <a href="https://github.com/dalebar/python-practice">de-precourse repo</a> that you forked and cloned previously.</p>
+          <p>Work through the exercises in <code class="snippet">03_dictionaries</code> and complete each function.</p>
+          <p>Use the notes in this lesson as well as the documentation. Don't feel restricted to the methods we've covered so far, and do your own research trying out new methods you find.</p>
+          <p>Once you've completed the exercises you can move on.</p>
+        </article>
+        <article>
+          <h2>Summary</h2>
+          <ul>
+            <li>Dictionaries are a handy way of collecting data with a label, indicating what each data item is.</li>
+            <li>The label is called a <b>key</b>, the data item is called a <b>value</b>.</li>
+            <li>Declare a dictionary with curly brackets, separating <code class="snippet">key:value</code> pairs with commas.</li>
+            <li>Access dictionary items with square bracket notation referencing the key.</li>
+          </ul>
+          <p>You will find more details about dictionaries in the <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">Python Dictionary documentation</a>.
+          </p>  
+        </article>
       </section>
       <section class="main-section"id="Branching_and_Logic">
         <header>Branching and Logic</header>
-        <article></article>
+        <article>
+          <h2>Branching and Conditional Logic</h2>
+        </article>
+        <article>
+          <h2>Truthy and Falsy Values</h2>
+        </article>
+        <article>
+          <h2>Comparison and Logical Operators</h2>
+        </article>
+        <article>
+          <h2>Logical Operators</h2>
+        </article>
+        <article>
+          <h2>Additional If Syntax</h2>
+        </article>
+        <article>
+          <h2>Conditional Expressions</h2>
+        </article>
+        <article>
+          <h2>Summary</h2>
+        </article>
       </section>
       <section class="main-section" id="Iteration">
         <header>Iteration</header>
-        <article></article>
+        <article>
+          <h2>For Loops</h2>
+        </article>
+        <article>
+          <h2>Iterable Objects</h2>
+        </article>
+        <article>
+          <h2>Conditional Iteration</h2>
+        </article>
+        <article>
+          <h2>Summary</h2>
+        </article>
       </section>
       <section class="main-section" id="Exercises">
         <header>Exercises</header>
-        <article></article>
+        <article>
+          <h2>Advanced Exercises</h2>
+        </article>
+        <article>
+          <h2>Debugging</h2>
+        </article>
+        <article>
+          <h2>Refactoring</h2>
+        </article>
+        <article>
+          <h2>Summary</h2>
+        </article>
       </section>
       <section class="main-section" id="Reference">
         <header>Reference</header>
