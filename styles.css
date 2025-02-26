@@ -55,6 +55,7 @@ header {
 }
 
 #main-doc {
+
   position: absolute;
   margin-left: 310px;
   padding: 20px;
@@ -62,6 +63,7 @@ header {
 }
 
 section article {
+  
   color: #4d4e53;
   margin: 15px;
   font-size: 0.96em;
@@ -69,13 +71,6 @@ section article {
 
 section li {
   margin: 15px 0px 0px 20px;
-}
-
-.snippet {
-  background-color: #eee;
-  border-radius: 3px;
-  font-family: courier, monospace;
-  padding: 0 3px;
 }
 
 blockquote {
@@ -86,6 +81,27 @@ blockquote {
   background-color: #F6F2F0;
   border-left: #776BE0 10px solid;
   border-radius: 5px;
+}
+
+.snippet {
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 1.15em;
+  padding: 0 3px;
+}
+
+.indent {
+  text-indent: 38px
+}
+
+.double-indent {
+  text-indent: 76px
+}
+
+h1 {
+  font-size: 1.8em;
+  
 }
 
 @media only screen and (max-width: 815px) {
